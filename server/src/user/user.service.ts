@@ -19,11 +19,12 @@ export class UserService {
     user.lastName = createUserDto.lastName;
     user.password = createUserDto.password;
     user.role = Constants.ROLES.NORMAL_ROLE;
-    return this.userRepository.create(user);
+    const newUser = this.userRepository.create(createUserDto);
+    return this.userRepository.save(newUser);
   }
 
   findAll() {
-    return `This action returns all user`;
+    return this.userRepository.find();
   }
 
   findOne(id: number) {

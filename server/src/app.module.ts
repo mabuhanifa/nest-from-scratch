@@ -13,11 +13,11 @@ import { UserModule } from './user/user.module';
       useFactory: (configService: ConfigService) => ({
         type: 'postgres',
         host: configService.get('DATABASE_HOST'),
-        port: configService.get<number>('DATABASE_PORT'),
+        port: +configService.get<number>('DATABASE_PORT'),
         username: configService.get('DATABASE_USERNAME'),
         password: configService.get('DATABASE_PASSWORD'),
         ssl: configService.get<boolean>('DATABASE_SSL'),
-        synchronize: configService.get<boolean>('DATABASE_SYNCHRONIZE'),
+        synchronize: configService.get<boolean>('DATABASE_SYNC'),
         logging: configService.get<boolean>('DATABASE_LOGGING'),
         database: configService.get('DATABASE_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
