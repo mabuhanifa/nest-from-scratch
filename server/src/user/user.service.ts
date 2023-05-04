@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Constants } from 'src/utlis/constants';
+import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User } from './entities/user.entity';
-import { UserRepository } from './repo/user.repository';
 
 @Injectable()
 export class UserService {
-  constructor(private userRepository: UserRepository) {}
+  constructor(
+    @InjectRepository(User) private userRepository: Repository<User>,
+  ) {}
 
   create(createUserDto: CreateUserDto) {
     const user: User = new User();
@@ -14,7 +18,8 @@ export class UserService {
     user.firstName = createUserDto.firstName;
     user.lastName = createUserDto.lastName;
     user.password = createUserDto.password;
-    return 'This action adds a new user';
+    user.role = Constants.ROLES.NORMAL_ROLE;
+    return this.userRepository.create(user);
   }
 
   findAll() {
