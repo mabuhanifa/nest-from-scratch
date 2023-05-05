@@ -1,8 +1,10 @@
+import SideBar from "./SideBar";
+
 export default function Layout({ children }) {
   return (
-    <div className="layout">
-      <Sidebar />
-      <main className="">{children}</main>;
+    <div className="flex ">
+      <SideBar />
+      <main className="">{children}</main>
     </div>
   );
 }
