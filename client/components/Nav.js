@@ -22,13 +22,15 @@ export default function Nav() {
           <RiSearchLine className="text-gray-400 text-2xl absolute left-2 top-1.5" />
         </div>
         <div>
-          <button className="px-5 mt-1">
+          <button className="px-5 mt-1.5">
             <AiOutlinePlus className="text-2xl text-gray-600" />
           </button>
         </div>
       </div>
       <div >
-        <CiUser className="text-2xl text-gray-600"/>
+        <button>
+        <CiUser className="text-2xl text-gray-600 mt-1.5"/>
+        </button>
       </div>
     </nav>
   );
