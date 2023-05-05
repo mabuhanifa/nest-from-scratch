@@ -1,16 +1,13 @@
 import Link from "next/link";
-import { Router } from "next/router";
-import { BsCalendar2Check } from "react-icons/bs";
-import { CiCalendarDate } from "react-icons/ci";
-import { RxHome } from "react-icons/rx";
-import { TiContacts } from "react-icons/ti";
+import { useRouter } from "next/router";
+import { CiBoxList, CiCalendar, CiCalendarDate, CiHome } from "react-icons/ci";
 
 export default function SideBar() {
   const sidebarItems = [
     {
       name: "All",
       href: "/",
-      icon: RxHome,
+      icon: CiHome,
     },
     {
       name: "Today",
@@ -20,32 +17,34 @@ export default function SideBar() {
     {
       name: "Scheduled",
       href: "/scheduled",
-      icon: TiContacts,
+      icon: CiBoxList,
     },
 
     {
       name: "Finished",
       href: "/finished",
-      icon: BsCalendar2Check,
+      icon: CiCalendar,
     },
   ];
-  const router = Router;
+  const { asPath } = useRouter();
   return (
-    <div>
-      <ul className="sidebar__list">
+    <div className="shad my-5 rounded-md">
+      <ul className="">
         {sidebarItems.map(({ name, href, icon: Icon }) => {
           return (
-            <li className="sidebar__item" key={name}>
-              <Link
-                className={`sidebar__link ${
-                  router.pathname === href ? "sidebar__link--active" : ""
-                }`}
-                href={href}
-              >
-                <span className="sidebar__icon">
-                  <Icon />
+            <li
+              key={name}
+              className={
+                asPath === href
+                  ? "font-[500] text-gray-900 bg-gray-200 pr-20 border-b"
+                  : "pr-20 border-b"
+              }
+            >
+              <Link href={href}>
+                <span className="text-2xl">
+                  <Icon className="inline mx-5 my-5" />
                 </span>
-                <span className="sidebar__name">{name}</span>
+                <span>{name}</span>
               </Link>
             </li>
           );
