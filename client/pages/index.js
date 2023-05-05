@@ -1,9 +1,9 @@
+import Nav from "@/components/Nav";
+
 export default function Home() {
-  function fetchData() {
-    fetch("http://localhost:3000/user")
-      .then((res) => res.json())
-      .then((data) => console.log(data));
-  }
-  fetchData();
-  return <div></div>;
+  return (
+    <div className="bg-white text-gray-600">
+      <Nav />
+    </div>
+  );
 }
