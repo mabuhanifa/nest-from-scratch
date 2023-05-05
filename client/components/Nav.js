@@ -1,3 +1,4 @@
+import { RiSearchLine } from "react-icons/ri";
 import { TiTick } from "react-icons/ti";
 
 export default function Nav() {
@@ -10,8 +11,9 @@ export default function Nav() {
         </span>
       </div>
       <div>
-        <div>
-            <input type="text" className="bg-gray-200 rounded-sm py-1 "/>
+        <div className="relative">
+            <input type="text" className="bg-gray-200 rounded-sm py-1 w-96 px-10"/>
+            <RiSearchLine className="text-gray-400 text-2xl absolute left-2 top-1"/>
         </div>
       </div>
       <div></div>
