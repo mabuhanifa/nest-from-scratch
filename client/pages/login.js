@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import Link from "next/link";
 
 export default function () {
   return (
@@ -26,9 +27,12 @@ export default function () {
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-10 w-full rounded my-5">
           Login
         </button>
-        <button className="text-sm bg-green-500 hover:bg-green-700 text-white py-.5 px-1 rounded">
-          Do not have an account ? Register
-        </button>
+        <span>
+          Do not have an account ?
+          <button className="mx-2 text-sm bg-green-500 hover:bg-green-700 text-white py-.5 px-1 rounded">
+            <Link href={"/signup"}>Register</Link>
+          </button>
+        </span>
       </div>
     </Layout>
   );

@@ -13,7 +13,7 @@ export default function Modal({ view, setModal }) {
       className="mx-5 bg-opacity-30 backdrop-blur-sm fixed inset-0 flex justify-center z-15 py-10"
       onClick={closeModal}
     >
-      <div className="max-w-2xl h-80 bg-gray-500 rounded-xl p-10 relative">
+      <div className="max-w-2xl h-80 rounded-xl p-10 relative shad">
         <h1 className="text-2xl font-bold mb-10">name</h1>
         <button
           className=" text-red-500 absolute top-2 right-2 bg-red-200 p-2 rounded-full hover:bg-red-300"
