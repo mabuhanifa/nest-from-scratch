@@ -21,7 +21,7 @@ export default function SideBar() {
     },
 
     {
-      name: "Finished",
+      name: "Completed",
       href: "/finished",
       icon: CiCalendar,
     },
