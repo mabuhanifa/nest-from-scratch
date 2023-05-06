@@ -28,7 +28,7 @@ export default function SideBar() {
   ];
   const { asPath } = useRouter();
   return (
-    <div className="shad my-5 rounded-md">
+    <div className="shad my-5 rounded-md h-min">
       <ul className="">
         {sidebarItems.map(({ name, href, icon: Icon }) => {
           return (
