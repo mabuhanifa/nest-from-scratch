@@ -7,6 +7,7 @@ import {
   Patch,
   Post,
   Query,
+  Redirect,
 } from '@nestjs/common';
 
 @Controller('users')
@@ -18,6 +19,9 @@ export class UsersController {
     PATCH /users/:id
     DELETE /users/:id
    */
+
+  @Get()
+  @Redirect('https://nestjs.com', 301)
 
   // GET /users or /users?role=value
   @Get()
