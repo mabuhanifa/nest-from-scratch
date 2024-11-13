@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -8,8 +9,16 @@ export class AuthService {
     return 'This action adds a new auth';
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  findAll(res: Response) {
+    const accessToken = 'hello world';
+
+    res.cookie('access_token', accessToken, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 3600000,
+    });
+
+    return res.json({ hi: 'hello' });
   }
 
   findOne(id: number) {
