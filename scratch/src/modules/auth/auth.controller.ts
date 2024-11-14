@@ -21,11 +21,8 @@ export class AuthController {
 
   @Post()
   @UseGuards(AuthGuard)
-  create(
-    @Body() createAuthDto: CreateAuthDto,
-    @Res({ passthrough: true }) res: Response,
-  ) {
-    return this.authService.create(createAuthDto, res);
+  create(@Res({ passthrough: true }) res: Response) {
+    return this.authService.create(res);
   }
 
   @Get()

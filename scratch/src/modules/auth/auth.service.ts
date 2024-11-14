@@ -6,7 +6,7 @@ import { generateToken } from 'src/utils/jwt.config';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto, res: Response) {
+  create(res: Response) {
     const token = generateToken({
       name: 'rahim',
       role: 'admin',
