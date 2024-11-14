@@ -1,9 +1,14 @@
-import jwt from 'jsonwebtoken';
+import * as jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'secret';
 const JWT_TIME = process.env.JWT_TIME || '60m';
 
-export const generateToken = (payload: object) => {
+type Payload = {
+  name: string;
+  role: string;
+};
+
+export const generateToken = (payload: Payload) => {
   return jwt.sign(payload, JWT_SECRET, { expiresIn: JWT_TIME });
 };
 

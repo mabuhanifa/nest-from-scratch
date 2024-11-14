@@ -2,11 +2,24 @@ import { Injectable } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import { Response } from 'express';
+import { generateToken } from 'src/utils/jwt.config';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
+  create(createAuthDto: CreateAuthDto, res: Response) {
+    const token = generateToken({
+      name: 'rahim',
+      role: 'admin',
+    });
+
+    res.cookie('access_token', token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 3600000,
+    });
+    return {
+      token,
+    };
   }
 
   findAll(res: Response) {
